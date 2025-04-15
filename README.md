@@ -1,4 +1,3 @@
-# Bridging-Realms-Physics-Tensors-vs-Machine-Learning-Tensors
 # Bridging Realms: Physics Tensors vs Machine Learning Tensors 🌌🤖
 
 ## Overview
@@ -58,13 +57,13 @@ To run the entire pipeline, simply execute:
 ```bash
 python main.py
 ```
-Tensor Operations
-Physics Tensor: Stress-Energy Tensor
+
+## Tensor Operations
+
+### Physics Tensor: Stress-Energy Tensor
 The project begins by defining a simple 2x2 stress-energy tensor in general relativity. We apply a Lorentz transformation to simulate the effect of high-speed motion on physical systems.
 
-python
-Copy
-Edit
+```python
 # Stress-Energy Tensor Transformation
 def lorentz_transform(tensor, velocity, speed_of_light=1):
     # Apply Lorentz transformation to tensor
@@ -73,27 +72,28 @@ def lorentz_transform(tensor, velocity, speed_of_light=1):
                                [-gamma * velocity, gamma]])
     transformed_tensor = np.dot(lorentz_matrix, np.dot(tensor, lorentz_matrix.T))
     return transformed_tensor
-Machine Learning Tensor: Rank-M Tensor Operations
+```
+
+### Machine Learning Tensor: Rank-M Tensor Operations
 We manipulate rank-4 tensors (e.g., batches of images in deep learning). Operations like reshaping and transposing are applied to demonstrate tensor transformations in machine learning tasks.
 
-python
-Copy
-Edit
+```python
 # ML Tensor Operations
 def ml_tensor_operations(tensor):
     reshaped_tensor = np.reshape(tensor, (-1, tensor.shape[-1]))  # Reshaping
     transposed_tensor = np.transpose(tensor, axes=(0, 3, 1, 2))  # Transposing
     return reshaped_tensor, transposed_tensor
-Visualizations
-Physics Tensor Visualization
+```
+
+## Visualizations
+
+### Physics Tensor Visualization
 We visualize the original and transformed stress-energy tensors as heatmaps, showing how the components change under Lorentz transformation.
 
-Machine Learning Tensor Visualization
+### Machine Learning Tensor Visualization
 We visualize slices of rank-4 ML tensors (representing batches of RGB images) using heatmaps and annotate each pixel's value.
 
-python
-Copy
-Edit
+```python
 # Visualizing ML tensor slices
 def plot_ml_tensor_slices(tensor):
     for b in range(batch):
@@ -101,10 +101,12 @@ def plot_ml_tensor_slices(tensor):
             ax.imshow(tensor[b, c], cmap='viridis')
             for (j, i), val in np.ndenumerate(tensor[b, c]):
                 ax.text(i, j, f"{val:.2f}", ha='center', va='center', color='white')
-Contributions
+```
+
+## Contributions
+
 Contributions are welcome! If you'd like to add new features, improve code quality, or provide suggestions, feel free to open a pull request or issue.
 
-License
+## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-
